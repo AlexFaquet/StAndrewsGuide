@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bubble Guide | St Andrews Freshers</title>
+  <style>
+    :root {
+      --deep-blue: #0c2d48;
+      --sky: #1f8a9e;
+      --sand: #f5ede2;
+      --off-white: #fdfbf7;
+      --text: #0f172a;
+      --muted: #4b5563;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(12, 45, 72, 0.96);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      outline: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--deep-blue), #15456b 45%, var(--sky));
+      color: #ffffff;
+      padding: 72px 20px 90px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3rem);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #e8f3fb;
+      font-size: 1.05rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--deep-blue);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
+
+    main {
+      padding: 50px 18px 70px;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      color: var(--deep-blue);
+    }
+
+    .section p.lead {
+      margin: 0 0 16px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(12, 45, 72, 0.07);
+      border: 1px solid #e4e4e4;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(12, 45, 72, 0.12);
+      border-color: rgba(31, 138, 158, 0.4);
+      outline: none;
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--sand);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .card a {
+      color: var(--sky);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      display: grid;
+      gap: 16px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .mini-item {
+      padding: 14px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .mini-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--deep-blue);
+    }
+
+    .video-placeholder {
+      background: repeating-linear-gradient(135deg, rgba(12, 45, 72, 0.12), rgba(12, 45, 72, 0.12) 12px, rgba(255, 255, 255, 0.35) 12px, rgba(255, 255, 255, 0.35) 24px);
+      border: 2px dashed rgba(12, 45, 72, 0.35);
+      border-radius: 14px;
+      padding: 28px;
+      display: grid;
+      place-items: center;
+      min-height: 160px;
+      color: var(--deep-blue);
+      font-weight: 600;
+    }
+
+    .tips-strip {
+      margin: 70px 0;
+      background: var(--sand);
+      padding: 30px 18px;
+    }
+
+    .tips-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .tip {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e4e4e4;
+      box-shadow: 0 8px 18px rgba(12, 45, 72, 0.07);
+      font-weight: 600;
+      color: var(--deep-blue);
+    }
+
+    .signup {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      max-width: 460px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--deep-blue);
+      font-size: 0.95rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #d5d5d5;
+      font-size: 1rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(31, 138, 158, 0.18);
+    }
+
+    footer {
+      padding: 26px 18px 36px;
+      background: var(--deep-blue);
+      color: #eaf3fb;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #eaf3fb;
+      font-weight: 600;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1.2fr 0.9fr;
+        align-items: center;
+      }
+
+      .hero-visual {
+        justify-self: end;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        padding: 20px;
+        width: 100%;
+        max-width: 360px;
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.15);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <nav aria-label="Main navigation">
+      <div class="logo">The Bubble Guide</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#study">Study</a>
+        <a href="#nightlife">Nightlife</a>
+        <a href="#food">Food</a>
+        <a href="#halls">Halls</a>
+        <a href="#traditions">Traditions</a>
+        <a href="#contact">Contact / Updates</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Your Fresher's Guide to St Andrews</h1>
+        <p>Quick tips from current students on where to study, eat, explore, and make the most of your first semester by the sea.</p>
+        <div class="button-row" aria-label="Hero actions">
+          <a class="btn btn-primary" href="#categories">Explore the Guide</a>
+          <a class="btn btn-secondary" href="#contact">Join the Freshers List</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="card" style="margin:0">
+          <div class="icon" aria-hidden="true">📍</div>
+          <h3>Start with your week one</h3>
+          <p>Find a study nook before lectures, pick a pub for ceilidhs, and save the best toastie spots.</p>
+          <div class="mini-list" style="grid-template-columns:1fr;">
+            <div class="mini-item">
+              <strong>Study</strong>
+              <span>Library mezzanine after 6pm is quieter than you think.</span>
+            </div>
+            <div class="mini-item">
+              <strong>Nightlife</strong>
+              <span>Thursday karaoke? Try Aikman's cellar.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="categories">
+      <h2>Browse Categories</h2>
+      <p class="lead">Shortcuts to the essentials. Each card opens a deeper dive with maps, tips, and student picks.</p>
+      <div class="card-grid">
+        <article class="card">
+          <div class="icon" aria-label="Study Spaces icon">📚</div>
+          <h3>Study Spaces</h3>
+          <p>Library corners, quiet cafés, and group spots that stay open late.</p>
+          <a href="#study">View more</a>
+        </article>
+        <article class="card">
+          <div class="icon" aria-label="Nightlife icon">🍻</div>
+          <h3>Nightlife &amp; Pubs</h3>
+          <p>Karaoke nights, ceilidhs, and where to go when the Union is packed.</p>
+          <a href="#nightlife">View more</a>
+        </article>
+        <article class="card">
+          <div class="icon" aria-label="Food icon">🥪</div>
+          <h3>Food &amp; Coffee</h3>
+          <p>Cheap eats, cozy cafés, and coffee spots near lecture halls.</p>
+          <a href="#food">View more</a>
+        </article>
+        <article class="card">
+          <div class="icon" aria-label="Halls icon">🏠</div>
+          <h3>Halls &amp; Housing</h3>
+          <p>What to know about halls, private flats, and where students actually live.</p>
+          <a href="#halls">View more</a>
+        </article>
+        <article class="card">
+          <div class="icon" aria-label="Traditions icon">🎓</div>
+          <h3>Traditions</h3>
+          <p>Red gowns, pier walks, Raisin antics, and academic families explained.</p>
+          <a href="#traditions">View more</a>
+        </article>
+        <article class="card">
+          <div class="icon" aria-label="Hidden Gems icon">🧭</div>
+          <h3>Hidden Gems</h3>
+          <p>Secret lanes, sunrise spots, and underrated study breaks.</p>
+          <a href="#hidden-gems">View more</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section highlight" id="study">
+      <div>
+        <h2>Study Spaces</h2>
+        <p class="lead">Mix quiet corners with coffee-fuelled group rooms so you can swap as the deadline changes.</p>
+      </div>
+      <div class="mini-list" aria-label="Featured study spaces">
+        <div class="mini-item">
+          <strong>Main Library mezzanine</strong>
+          <span>Evenings stay calmer; bring layers because the windows get breezy.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Kingdom Coffee</strong>
+          <span>Reliable Wi‑Fi and sockets by the wall benches; best before 10am.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Sallies Quad benches</strong>
+          <span>Sunny days only; pair with Pret iced coffee and short reading lists.</span>
+        </div>
+      </div>
+      <div class="video-placeholder" aria-label="Placeholder for study spaces video">Video spotlight coming soon</div>
+    </section>
+
+    <section class="section highlight" id="nightlife">
+      <div>
+        <h2>Nightlife &amp; Pubs</h2>
+        <p class="lead">From ceilidhs to karaoke, here are the first stops before everyone heads to Market Street.</p>
+      </div>
+      <div class="mini-list" aria-label="Nightlife picks">
+        <div class="mini-item">
+          <strong>Aikman's Cellar Bar</strong>
+          <span>Thursday karaoke and student bands. Arrive early for seats.</span>
+        </div>
+        <div class="mini-item">
+          <strong>St Andrews Brewing Co.</strong>
+          <span>Great for small groups; split a pizza and try the seasonal tap.</span>
+        </div>
+        <div class="mini-item">
+          <strong>The Vic</strong>
+          <span>Union lines too long? The Vic's dance floor opens late; stash coats downstairs.</span>
+        </div>
+      </div>
+      <div class="video-placeholder" aria-label="Placeholder for nightlife video">Event previews drop here</div>
+    </section>
+
+    <section class="section highlight" id="traditions">
+      <div>
+        <h2>Traditions</h2>
+        <p class="lead">Lean into the quirks: gowns, pier walks, Raisin Monday, and friendships via academic families.</p>
+      </div>
+      <div class="mini-list" aria-label="Tradition highlights">
+        <div class="mini-item">
+          <strong>Pier Walk</strong>
+          <span>Sunday gowns after chapel; windproof everything and lace up sturdy shoes.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Raisin Monday</strong>
+          <span>Bring spare clothes and label valuables; foam fight meets scavenger hunt.</span>
+        </div>
+        <div class="mini-item">
+          <strong>May Dip</strong>
+          <span>Sunrise sprint into the North Sea; dry towels and hot chocolate essential.</span>
+        </div>
+      </div>
+      <div class="video-placeholder" aria-label="Placeholder for traditions video">Tradition recaps will live here</div>
+    </section>
+
+    <section class="tips-strip" id="hidden-gems">
+      <div class="tips-grid" aria-label="Freshers tips">
+        <div class="tip">First week route: Castle Sands sunrise, North Street coffee, Union fair in the afternoon.</div>
+        <div class="tip">Survive Raisin: wear shoes you don't mind ruining and keep a water bottle handy.</div>
+        <div class="tip">Cheap eats: black pudding rolls at Northpoint, soup at Spoiled Life, Aldi snack runs.</div>
+        <div class="tip">Study break: walk the Lade Braes trail for 20 minutes before evening lectures.</div>
+      </div>
+    </section>
+
+    <section class="section highlight" id="food">
+      <h2>Food &amp; Coffee</h2>
+      <p class="lead">Budget-friendly bites, caffeine fixes, and spots close to lectures so you make it back on time.</p>
+      <div class="mini-list" aria-label="Food picks">
+        <div class="mini-item">
+          <strong>Northpoint</strong>
+          <span>Famous for cinnamon rolls; grab-and-go before 10am lectures.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Blackhorn</strong>
+          <span>Burgers under a tenner; great late lunch before tutorials.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Ladyhead Bookshop Café</strong>
+          <span>Quiet tables tucked away upstairs; perfect for midweek reading.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight" id="halls">
+      <h2>Halls &amp; Housing</h2>
+      <p class="lead">What to expect in halls, how to prep for private flats, and where people actually stay after first year.</p>
+      <div class="mini-list" aria-label="Housing notes">
+        <div class="mini-item">
+          <strong>Union Street</strong>
+          <span>Close to town and North Haugh; book viewings early for next year.</span>
+        </div>
+        <div class="mini-item">
+          <strong>Agnes Blackadder</strong>
+          <span>En-suite and near the sports centre; great for morning gym trips.</span>
+        </div>
+        <div class="mini-item">
+          <strong>DRA/VPP</strong>
+          <span>Farther out but social; bike or bus pass helps on rainy days.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="signup">
+        <h2>Stay Updated</h2>
+        <p class="lead">Get new tips, updated opening times, and event reminders. No spam, just student-to-student notes.</p>
+        <form>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@st-andrews.ac.uk" required aria-required="true">
+
+          <label for="first-name">First name (optional)</label>
+          <input id="first-name" name="first-name" type="text" placeholder="Alex">
+
+          <button class="btn btn-primary" type="submit" style="width:max-content;">Notify me</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>The Bubble Guide</strong><br>
+        <span>Created by students for students</span>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#contact">Contact</a>
+        <a href="#" aria-label="Instagram link placeholder">Instagram</a>
+        <a href="#" aria-label="TikTok link placeholder">TikTok</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
