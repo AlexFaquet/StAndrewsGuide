@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshers Week | Freshers Guide</title>
+  <style>
+    :root { --deep-blue:#0c2d48; --sky:#1f8a9e; --accent:#f7b267; --sand:#f5ede2; --off-white:#fdfbf7; --text:#0f172a; --muted:#4b5563; --outline:rgba(31,138,158,0.4); }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--off-white);line-height:1.6;scroll-behavior:smooth;}
+    a{color:inherit;text-decoration:none;}
+    .skip-link{position:absolute;left:-999px;top:-999px;padding:10px 14px;background:#fff;color:var(--deep-blue);border:2px solid var(--sky);border-radius:10px;font-weight:700;z-index:20;}
+    .skip-link:focus{left:12px;top:12px;}
+    header{position:sticky;top:0;z-index:10;background:rgba(12,45,72,0.96);backdrop-filter:blur(6px);color:#fff;}
+    nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:14px 20px;gap:16px;}
+    .logo{font-weight:700;letter-spacing:0.5px;font-size:1rem;}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
+    .nav-links a{padding:8px 10px;border-radius:6px;font-size:0.95rem;transition:background .2s ease,color .2s ease;}
+    .nav-links a:hover,.nav-links a:focus-visible{background:rgba(255,255,255,0.14);color:#fff;outline:2px solid var(--outline);outline-offset:2px;}
+    .nav-cta{background:#fff;color:var(--deep-blue);padding:8px 12px;border-radius:999px;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.45);}
+    .nav-cta:hover,.nav-cta:focus-visible{background:var(--sand);color:var(--deep-blue);outline:2px solid var(--outline);outline-offset:2px;}
+    .hero{background:linear-gradient(135deg,var(--deep-blue),#15456b 45%,var(--sky));color:#fff;padding:68px 20px 80px;}
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;gap:18px;}
+    .hero h1{margin:0;font-size:clamp(2.1rem,5vw,2.8rem);letter-spacing:-0.5px;line-height:1.2;}
+    .hero p{margin:0;color:#e8f3fb;font-size:1.05rem;}
+    .btn{padding:12px 16px;border-radius:10px;border:2px solid transparent;font-weight:600;cursor:pointer;display:inline-block;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;}
+    .btn-primary{background:#fff;color:var(--deep-blue);box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+    .btn:hover,.btn:focus-visible{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,0.15);outline:2px solid var(--outline);outline-offset:2px;}
+    main{padding:50px 18px 70px;}
+    .section{max-width:1100px;margin:0 auto 60px;}
+    .section h2{margin:0 0 12px;font-size:clamp(1.6rem,3vw,2rem);color:var(--deep-blue);}
+    .section p.lead{margin:0 0 16px;color:var(--muted);max-width:720px;}
+    .card{background:#fff;padding:18px;border-radius:12px;border:1px solid #e4e4e4;box-shadow:0 8px 22px rgba(12,45,72,0.07);}
+    .list{margin:12px 0 0;padding-left:18px;color:var(--muted);}
+    footer{padding:26px 18px 36px;background:var(--deep-blue);color:#eaf3fb;}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;}
+    .footer-links{display:flex;gap:14px;flex-wrap:wrap;}
+    .footer-links a{color:#eaf3fb;font-weight:600;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="logo">Freshers Guide</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="freshers-pack.html">Freshers Hub</a>
+        <a href="before-you-arrive.html">Before You Arrive</a>
+        <a href="freshers-week.html">Freshers Week</a>
+        <a href="halls.html">Accommodation</a>
+        <a href="study.html">Study</a>
+        <a href="nightlife.html">Nightlife</a>
+        <a href="food.html">Food</a>
+        <a href="traditions.html">Traditions</a>
+        <a href="student-life.html">Student Life</a>
+        <a href="societies-sports.html">Societies &amp; Sports</a>
+        <a href="mailto:hello@freshersguide.com">Contact</a>
+        <a class="nav-cta" href="index.html#checklist">Free checklist</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Freshers Week</h1>
+        <p>Balanced day plans, queue tactics, and safe routes home.</p>
+        <a class="btn btn-primary" href="freshers-pack.html">Start with the hub</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="content">
+    <section class="section">
+      <h2>What you’ll find</h2>
+      <p class="lead">Short, calm guidance you can skim before heading out.</p>
+      <div class="card">
+        <strong>Inside this guide</strong>
+        <ul class="list">
+          <li>Sample day plans: quiet, balanced, social</li>
+          <li>Queue tactics and ticket backups</li>
+          <li>Safe nights out and sober-friendly options</li>
+          <li>Homesickness and downtime tips</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Freshers Guide to St Andrews</strong><br>
+        <span>Student-run, updated for 2025</span>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:hello@freshersguide.com">Email</a>
+        <a href="#" aria-label="Instagram link placeholder">Instagram</a>
+        <a href="#" aria-label="TikTok link placeholder">TikTok</a>
+      </div>
+      <div><small>Independent; not officially affiliated with the University.</small></div>
+    </div>
+  </footer>
+</body>
+</html>

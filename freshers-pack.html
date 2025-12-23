@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshers Pack | The Bubble Guide</title>
+  <style>
+    :root {
+      --deep-blue: #0c2d48;
+      --sky: #1f8a9e;
+      --accent: #f7b267;
+      --sand: #f5ede2;
+      --off-white: #fdfbf7;
+      --text: #0f172a;
+      --muted: #4b5563;
+      --outline: rgba(31, 138, 158, 0.4);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute; left: -999px; top: -999px;
+      padding: 10px 14px; background: #ffffff; color: var(--deep-blue);
+      border: 2px solid var(--sky); border-radius: 10px; font-weight: 700; z-index: 20;
+    }
+    .skip-link:focus { left: 12px; top: 12px; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(12, 45, 72, 0.96); backdrop-filter: blur(6px); color: #ffffff;
+    }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 14px 20px; gap: 16px;
+    }
+    .logo { font-weight: 700; letter-spacing: 0.5px; font-size: 1rem; }
+    .nav-links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a {
+      padding: 8px 10px; border-radius: 6px; font-size: 0.95rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible {
+      background: rgba(255, 255, 255, 0.14); color: #ffffff;
+      outline: 2px solid var(--outline); outline-offset: 2px;
+    }
+    .nav-cta {
+      background: #ffffff; color: var(--deep-blue); padding: 8px 12px; border-radius: 999px;
+      font-weight: 700; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+    .nav-cta:hover, .nav-cta:focus-visible {
+      background: var(--sand); color: var(--deep-blue);
+      outline: 2px solid var(--outline); outline-offset: 2px;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--deep-blue), #15456b 45%, var(--sky));
+      color: #ffffff; padding: 68px 20px 80px;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; gap: 18px; }
+    .hero h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 3rem); letter-spacing: -0.5px; line-height: 1.2; }
+    .hero p { margin: 0; color: #e8f3fb; font-size: 1.05rem; }
+    .btn {
+      padding: 12px 16px; border-radius: 10px; border: 2px solid transparent;
+      font-weight: 600; cursor: pointer; display: inline-block;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+    .btn-primary { background: #ffffff; color: var(--deep-blue); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
+    .btn:hover, .btn:focus-visible {
+      transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+      outline: 2px solid var(--outline); outline-offset: 2px;
+    }
+    main { padding: 50px 18px 70px; }
+    .section { max-width: 1100px; margin: 0 auto 60px; }
+    .section h2 { margin: 0 0 12px; font-size: clamp(1.6rem, 3vw, 2rem); color: var(--deep-blue); }
+    .section p.lead { margin: 0 0 16px; color: var(--muted); max-width: 720px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 6px; background: rgba(31, 138, 158, 0.12);
+      color: var(--deep-blue); padding: 6px 10px; border-radius: 999px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.78rem;
+    }
+    .quick-nav {
+      position: sticky; top: 64px; z-index: 6; background: rgba(253, 251, 247, 0.9);
+      backdrop-filter: blur(8px); border: 1px solid #e6e1d8; border-radius: 14px;
+      padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      margin: -28px auto 34px; max-width: 1100px; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    }
+    .badge-link {
+      padding: 8px 10px; border-radius: 999px; background: #ffffff; border: 1px solid #e5e5e5;
+      color: var(--deep-blue); font-weight: 700; font-size: 0.92rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .badge-link:hover, .badge-link:focus-visible {
+      border-color: var(--sky); box-shadow: 0 8px 16px rgba(12, 45, 72, 0.12);
+      transform: translateY(-1px); outline: none;
+    }
+    .badge-link.cta { background: var(--deep-blue); color: #ffffff; border-color: var(--deep-blue); }
+    .badge-link.active { background: var(--sand); border-color: var(--sky); color: var(--deep-blue); box-shadow: 0 8px 16px rgba(12, 45, 72, 0.12); }
+    .toc-list {
+      list-style: none; padding: 0; margin: 14px 0 0;
+      display: grid; gap: 12px; counter-reset: toc;
+    }
+    .toc-item {
+      position: relative; background: #ffffff; border: 1px solid #e8e8e8; border-radius: 14px;
+      padding: 14px 16px 14px 58px; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      counter-increment: toc;
+    }
+    .toc-item::before {
+      content: counter(toc); position: absolute; left: 16px; top: 16px; width: 30px; height: 30px;
+      border-radius: 50%; background: var(--deep-blue); color: #ffffff; display: grid; place-items: center;
+      font-weight: 800; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+    .toc-item h3 { margin: 0; color: var(--deep-blue); font-size: 1.05rem; }
+    .toc-item .purpose { margin: 4px 0 0; color: var(--muted); font-weight: 600; }
+    .toc-points { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+    .toc-points li { margin: 3px 0; }
+    footer {
+      padding: 26px 18px 36px; background: var(--deep-blue); color: #eaf3fb;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px;
+      align-items: center; justify-content: space-between;
+    }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-links a { color: #eaf3fb; font-weight: 600; }
+    @media (max-width: 620px) {
+      .quick-nav { top: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#freshers-pack-content">Skip to main content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="logo">The Bubble Guide</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="freshers-pack.html">Freshers Hub</a>
+        <a href="before-you-arrive.html">Before You Arrive</a>
+        <a href="freshers-week.html">Freshers Week</a>
+        <a href="halls.html">Accommodation</a>
+        <a href="study.html">Study</a>
+        <a href="nightlife.html">Nightlife</a>
+        <a href="food.html">Food</a>
+        <a href="traditions.html">Traditions</a>
+        <a href="student-life.html">Student Life</a>
+        <a href="societies-sports.html">Societies &amp; Sports</a>
+        <a href="mailto:hello@freshersguide.com">Contact</a>
+        <a class="nav-cta" href="index.html#checklist">Free checklist</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Premium Freshers Pack</h1>
+        <p>Written by students for students: calm, practical guidance from pre-arrival to your first weeks.</p>
+        <a class="btn btn-primary" href="index.html#checklist">Join the Freshers List</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick-nav" aria-label="Quick section navigation">
+    <a class="badge-link" href="index.html">Home</a>
+    <a class="badge-link active" href="freshers-pack.html">Freshers pack</a>
+    <a class="badge-link" href="before-you-arrive.html">Before you arrive</a>
+    <a class="badge-link" href="freshers-week.html">Freshers week</a>
+    <a class="badge-link" href="study.html">Study</a>
+    <a class="badge-link" href="nightlife.html">Nightlife</a>
+    <a class="badge-link" href="food.html">Food</a>
+    <a class="badge-link" href="halls.html">Halls</a>
+    <a class="badge-link" href="traditions.html">Traditions</a>
+    <a class="badge-link" href="hidden-gems.html">Hidden gems</a>
+    <a class="badge-link" href="student-life.html">Student life</a>
+    <a class="badge-link" href="societies-sports.html">Societies &amp; sports</a>
+    <a class="badge-link cta" href="index.html#checklist">Join freshers list</a>
+  </div>
+
+  <main id="freshers-pack-content">
+    <section class="section">
+      <div class="eyebrow">Freshers pack</div>
+      <h2>Table of Contents</h2>
+      <p class="lead">Modular, scannable chapters you can dip into as you move from pre-arrival to week four.</p>
+      <ol class="toc-list" aria-label="Freshers pack table of contents">
+        <li class="toc-item">
+          <h3>Before You Arrive</h3>
+          <p class="purpose">Help you land prepared with admin, gear, and a plan.</p>
+          <ul class="toc-points">
+            <li>Visas/ID, banking, NHS registration</li>
+            <li>Packing lists: must-haves vs nice-to-haves</li>
+            <li>Tech setup: uni email, Wi‑Fi login, laptop prep</li>
+            <li>Travel plan, arrival timing, and budget primer</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Arrival Day Playbook</h3>
+          <p class="purpose">Reduce first-day stress and get settled fast.</p>
+          <ul class="toc-points">
+            <li>Check-in flow: keys, ID card, hall desk</li>
+            <li>Room setup basics and storage hacks</li>
+            <li>Same-day essentials: groceries, SIM, Wi‑Fi</li>
+            <li>Meeting hall staff and first-night safety</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Freshers Week Survival</h3>
+          <p class="purpose">Enjoy the week while keeping energy, budget, and safety intact.</p>
+          <ul class="toc-points">
+            <li>Sample day plans: quiet, balanced, social</li>
+            <li>Queue tactics and ticket backups</li>
+            <li>Safe nights out and sober-friendly options</li>
+            <li>Homesickness and downtime tips</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Accommodation &amp; Hall Life</h3>
+          <p class="purpose">Set expectations for living with others and make hall life easier.</p>
+          <ul class="toc-points">
+            <li>Catered vs self-catered routines</li>
+            <li>Noise, conflict fixes, and when to ask for help</li>
+            <li>Cleaning rotas, fridge space, storage</li>
+            <li>Hall events and low-pressure ways to join</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Academic Life (First Year)</h3>
+          <p class="purpose">Start classes confident and organised.</p>
+          <ul class="toc-points">
+            <li>Timetables and finding rooms</li>
+            <li>Lectures vs tutorials: etiquette and participation</li>
+            <li>Moodle/MMS basics, deadlines, extensions</li>
+            <li>Study spots, printing, and office hours</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Life in Town</h3>
+          <p class="purpose">Know where to go, what things cost, and how to stay safe.</p>
+          <ul class="toc-points">
+            <li>Food/coffee by budget; late-night options</li>
+            <li>Study map: quiet vs group, sockets, opening times</li>
+            <li>Traditions explained safely (Pier Walk, Raisin, May Dip)</li>
+            <li>Nightlife routes, curfews, taxis, and backups</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Societies, Sports, and Friends</h3>
+          <p class="purpose">Build your circle after the initial rush.</p>
+          <ul class="toc-points">
+            <li>Freshers Fair game plan and intros</li>
+            <li>Taster sessions, intramurals, gym basics</li>
+            <li>Volunteering, creative groups, communities</li>
+            <li>Group chat etiquette and inclusive planning</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Wellbeing, Safety, and Support</h3>
+          <p class="purpose">Keep yourself and friends healthy, respectful, and supported.</p>
+          <ul class="toc-points">
+            <li>Health and mental health services</li>
+            <li>Staying safe at night; looking out for each other</li>
+            <li>Respectful relationships and consent reminders</li>
+            <li>Digital safety and dealing with online issues</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Money and Logistics</h3>
+          <p class="purpose">Avoid surprise costs and keep moving around town smoothly.</p>
+          <ul class="toc-points">
+            <li>Weekly budget template and hidden costs</li>
+            <li>Transport: buses, bikes, walking routes, taxis</li>
+            <li>SIM/data options and Wi‑Fi tips</li>
+            <li>Part-time work basics and time balancing</li>
+          </ul>
+        </li>
+        <li class="toc-item">
+          <h3>Quick References</h3>
+          <p class="purpose">Skim-ready checklists, maps, and emergency info.</p>
+          <ul class="toc-points">
+            <li>Packing and first-week admin checklists</li>
+            <li>Mini map: halls, lectures, food, study, late-night</li>
+            <li>Emergency numbers and key contacts</li>
+            <li>Term timeline at a glance</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>The Bubble Guide</strong><br>
+        <span>Created by students for students</span>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:hello@freshersguide.com">Email</a>
+        <a href="#" aria-label="Instagram link placeholder">Instagram</a>
+        <a href="#" aria-label="TikTok link placeholder">TikTok</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
