@@ -142,6 +142,76 @@
     }
     .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .footer-links a { color: #eaf3fb; font-weight: 600; }
+
+    /* Home layout overrides */
+    .hero {
+      position: relative;
+      color: #ffffff;
+      padding: 90px 20px;
+      overflow: hidden;
+      background: #2f3c4d;
+      text-align: center;
+    }
+    .hero.with-image {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('images/quad.jpg');
+    }
+
+    .hero-overlay { position: absolute; inset: 0; }
+    .hero-inner {
+      position: relative;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; gap: 24px;
+      align-items: center; justify-items: center;
+    }
+    .hero-content h1 { margin: 0; font-size: clamp(2.4rem, 5vw, 3.4rem); letter-spacing: -0.5px; line-height: 1.2; }
+    .hero-content p { margin: 8px 0 12px; color: #e8f3fb; font-size: 1.05rem; }
+    .hero-visual { display: flex; justify-content: center; }
+    .image-placeholder { width: 220px; height: 160px; border-radius: 18px; background: rgba(255,255,255,0.2); border: 2px dashed rgba(255,255,255,0.5); }
+
+    main { padding: 60px 18px 80px; }
+    .section { max-width: 1100px; margin: 0 auto 70px; }
+    .section h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--deep-blue); }
+    .lead { margin: 0 0 20px; color: var(--muted); max-width: 760px; }
+
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px; margin-top: 12px;
+    }
+    .feature-card {
+      background: #ffffff; border: 1px solid #dcdcdc; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+      display: flex; flex-direction: column;
+      min-height: 260px;
+    }
+    .feature-image { height: 120px; background: #e6e6e6; }
+    .feature-image.split { height: 100%; }
+    .feature-body { padding: 16px; display: grid; gap: 6px; }
+    .feature-kicker { margin: 0; font-weight: 700; color: var(--muted); font-size: 0.9rem; }
+    .feature-card h3 { margin: 0; color: var(--deep-blue); font-size: 1.2rem; }
+    .feature-card p { margin: 0; color: var(--muted); }
+    .feature-card a { margin-top: 4px; color: var(--sky); font-weight: 700; }
+
+    .stats-header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+    .stats-actions { display: flex; gap: 10px; }
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px; margin-top: 18px;
+    }
+    .stat-card {
+      background: #ffffff; border: 1px solid #dcdcdc; border-radius: 12px;
+      padding: 16px; box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      display: grid; gap: 8px;
+      min-height: 140px;
+    }
+    .stat-card.tall { grid-row: span 2; min-height: 240px; }
+    .stat-card.image { background: #e6e6e6; }
+    .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--deep-blue); }
+    .stat-label { font-weight: 700; color: var(--deep-blue); }
+
+    .cta { text-align: center; }
+    .cta-image { background: #e2e2e2; border-radius: 16px; border: 1px dashed #cccccc; min-height: 220px; display: grid; place-items: center; margin-top: 18px; }
   </style>
 </head>
 <body>
@@ -164,129 +234,102 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero with-image">
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
-      <div>
-        <h1>Freshers Guide to St Andrews</h1>
-        <p>Student-run, calm answers for your first weeks—no brochure fluff.</p>
+      <div class="hero-content">
+        <h1>Welcome to your St Andrews adventure</h1>
+        <p>Real students sharing what matters most. Calm, honest guidance for your first weeks.</p>
         <div class="button-row" aria-label="Hero actions">
-          <a class="btn btn-primary" href="freshers-pack.html">Go to the Freshers Hub</a>
-          <a class="btn btn-secondary" href="#checklist">Get the free checklist</a>
+          <a class="btn btn-primary" href="freshers-pack.html">Explore the guide</a>
+          <a class="btn btn-secondary" href="#cta">Get updates</a>
         </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="image-placeholder"></div>
       </div>
     </div>
   </section>
 
   <main id="main">
-    <!-- Trust & Credibility -->
-    <section class="section" aria-labelledby="trust">
-      <div class="eyebrow">Student-run</div>
-      <h2 id="trust">Why trust this?</h2>
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
-        <div class="card">
-          <h3>Written by current students</h3>
-          <p>Real routines, real prices, and what actually happens in week one.</p>
+    <!-- Features -->
+    <section class="section" aria-labelledby="features">
+      <div class="eyebrow">Essentials</div>
+      <h2 id="features">What matters most</h2>
+      <p class="lead">Honest tips written by students who know the place.</p>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-image"></div>
+          <div class="feature-body">
+            <p class="feature-kicker">Practical</p>
+            <h3>Checklists that work</h3>
+            <p>Everything you need before arrival and during first week.</p>
+            <a href="before-you-arrive.html">Learn</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-image"></div>
+          <div class="feature-body">
+            <p class="feature-kicker">Interactive</p>
+            <h3>Campus map and highlights</h3>
+            <p>Navigate St Andrews confidently with our detailed guide.</p>
+            <a href="freshers-pack.html">Discover</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-image split"></div>
+          <div class="feature-body">
+            <p class="feature-kicker">Clubs</p>
+            <h3>Find your people</h3>
+            <p>Hundreds of societies waiting for you to join.</p>
+            <a href="societies-sports.html">Browse</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="section" aria-labelledby="stats">
+      <div class="eyebrow">Numbers</div>
+      <div class="stats-header">
+        <div>
+          <h2 id="stats">St Andrews by the numbers</h2>
         </div>
-        <div class="card">
-          <h3>Updated yearly</h3>
-          <p>We refresh opening times, routes, and hall tips before each September.</p>
-        </div>
-        <div class="card">
-          <h3>Honest, not a brochure</h3>
-          <p>Calm guidance on study, halls, nights out, and staying safe.</p>
-        </div>
-        <div class="card">
-          <h3>Independent</h3>
-          <p>Student-run and not officially affiliated with the University.</p>
+        <div class="stats-actions">
+          <a class="btn btn-primary" href="freshers-pack.html">Explore</a>
+          <a class="btn btn-secondary" href="freshers-week.html">Learn</a>
         </div>
       </div>
-    </section>
-
-    <!-- Primary Navigation Cards -->
-    <section class="section" aria-labelledby="nav-cards">
-      <h2 id="nav-cards">Find your starting point</h2>
-      <p class="lead">Large, tappable cards to the guides you need first.</p>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Freshers Hub</h3>
-          <p>Start here for the full first-weeks roadmap.</p>
-          <a href="freshers-pack.html">Open hub</a>
-        </article>
-        <article class="card">
-          <h3>Accommodation &amp; Halls</h3>
-          <p>What to expect in halls and how to settle fast.</p>
-          <a href="halls.html">View halls guide</a>
-        </article>
-        <article class="card">
-          <h3>Before You Arrive</h3>
-          <p>Prep lists, travel plans, and day-one essentials.</p>
-          <a href="before-you-arrive.html">Check prep steps</a>
-        </article>
-        <article class="card">
-          <h3>Freshers Week</h3>
-          <p>Low-pressure plans, queue tactics, and safety tips.</p>
-          <a href="freshers-week.html">Plan your week</a>
-        </article>
-        <article class="card">
-          <h3>Societies &amp; Sports</h3>
-          <p>How to join clubs, taster sessions, and intramurals.</p>
-          <a href="societies-sports.html">Find a group</a>
-        </article>
-        <article class="card">
-          <h3>Student Life</h3>
-          <p>Food, study spots, traditions, and safe nights out.</p>
-          <a href="student-life.html">Explore student life</a>
-        </article>
+      <div class="stat-grid">
+        <div class="stat-card tall">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Clubs and societies</div>
+          <p>From rowing to robotics, there’s something for everyone.</p>
+        </div>
+        <div class="stat-card image"></div>
+        <div class="stat-card">
+          <div class="stat-number">600</div>
+          <div class="stat-label">Years of history</div>
+          <p>Scotland’s oldest university with a forward-thinking community.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Student satisfaction</div>
+          <p>Freshers report feeling welcomed and supported here.</p>
+        </div>
+        <div class="stat-card image"></div>
       </div>
     </section>
 
-    <!-- Who this is for -->
-    <section class="section" aria-labelledby="who-for">
-      <div class="eyebrow">Who this helps</div>
-      <h2 id="who-for">If you’re feeling unsure, you’re in the right place</h2>
-      <p class="lead">You’re not alone. This guide is for:</p>
-      <div class="pill-list" aria-label="Audience types">
-        <span class="pill">Students nervous about Freshers Week</span>
-        <span class="pill">First time living in halls</span>
-        <span class="pill">International students</span>
-        <span class="pill">People who want low-pressure ways to meet others</span>
-        <span class="pill">Anyone who prefers honest, student-to-student advice</span>
+    <!-- CTA -->
+    <section class="section cta" id="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Start your St Andrews journey</h2>
+      <p class="lead">Everything you need is here. Dive in and get ready for what’s ahead.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="freshers-pack.html">Begin</a>
+        <a class="btn btn-secondary" href="before-you-arrive.html">Learn</a>
       </div>
-    </section>
-
-    <!-- Featured seasonal -->
-    <section class="section" aria-labelledby="featured">
-      <div class="featured">
-        <div class="eyebrow">Seasonal guide</div>
-        <h2 id="featured">What to bring (and what to skip)</h2>
-        <p class="lead">A quick packing list tailored to Scottish weather and hall life.</p>
-        <a class="btn btn-primary" href="before-you-arrive.html">Open the packing guide</a>
-      </div>
-    </section>
-
-    <!-- Upsell -->
-    <section class="section" aria-labelledby="upgrade">
-      <div class="featured">
-        <div class="eyebrow">Comprehensive guide</div>
-        <h2 id="upgrade">Upgrade to the full Freshers Guide</h2>
-        <p class="lead">Detailed routes, packing templates, scripts for hall chats, maps, and weekly planners—kept current by students each year.</p>
-        <a class="btn btn-primary" href="freshers-pack.html">See what’s inside</a>
-      </div>
-    </section>
-
-    <!-- Checklist signup -->
-    <section class="section" id="checklist" aria-labelledby="signup">
-      <div class="signup">
-        <h2 id="signup">Get the free Freshers checklist PDF</h2>
-        <p class="lead">One email with a printable checklist. No spam, just useful.</p>
-        <form>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@st-andrews.ac.uk" required aria-required="true">
-          <label for="first-name">First name (optional)</label>
-          <input id="first-name" name="first-name" type="text" placeholder="Alex">
-          <button class="btn btn-primary" type="submit" style="width:max-content;">Send me the PDF</button>
-        </form>
-      </div>
+      <div class="cta-image" aria-hidden="true"></div>
     </section>
   </main>
 
